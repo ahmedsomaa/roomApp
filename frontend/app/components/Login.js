@@ -17,7 +17,7 @@ import logoImg from '../assets/logo-white.png';
 import usernameImg from '../assets/username.png';
 import passwordImg from '../assets/password.png';
 import errorImg from '../assets/error.png';
-import {loginUser, signupUser} from '../actions'
+import {loginUser, signupUser, authUser} from '../actions'
 
 
 const validate = values => {
@@ -38,8 +38,6 @@ const validate = values => {
 
 
 
-
-
 const renderEmail = ({ input: { onChange, ...restInput }, meta: {touched, error, warning}}) => {
   return <View><UserInput onChangeText = {onChange}{...restInput} placeholder = 'email' source = {usernameImg} 
           autoCapitalize={'none'} returnKeyType={'done'} autoCorrect={false}/> 
@@ -50,6 +48,7 @@ const renderEmail = ({ input: { onChange, ...restInput }, meta: {touched, error,
             <Text style= {styles.err}>{error}</Text></View>))}
           </View>
 }
+
 const renderPass = ({ input: { onChange, ...restInput }, meta: {touched, error, warning}}) => {
   return <View><UserInput onChangeText = {onChange}{...restInput} placeholder = 'password' source = {passwordImg} 
           autoCapitalize={'none'} secureTextEntry={true} returnKeyType={'done'} autoCorrect={false}/> 
@@ -67,13 +66,10 @@ class Login extends Component {
     super(props);  
   }
 
-  
-
   render() {
     const submitForm = (values) => {
-      //console.log(values.email, values.password)
+      console.log(values.email, values.password)
       this.props.dispatch(loginUser(values.email, values.password))
-      //this.props.dispatch(addAlert('Hello'))
 
     }
     const {handleSubmit} = this.props;

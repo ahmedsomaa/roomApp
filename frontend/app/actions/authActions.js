@@ -1,15 +1,17 @@
 import axios from 'axios';
-import {addAlert} from './alertsActions';
+import {authUser} from './authActions';
 import {SIGNIN_URL, SIGNUP_URL} from '../api';
 
 exports.loginUser = (email, password) => {
     return function (dispatch) {
         return axios.post(SIGNIN_URL, {email, password}).then((response) => {
             var {user_id, token} = response.data;
-            alert(token);
-            alert(authUser(user_id))
+            //alert(token);
+            console.log('user_id: ', user_id);
+            console.log('token: ', token);
+            //alert(authUser(user_id))
             //dispatch(addAlert(token));
-            //dispatch(authUser(user_id));
+            dispatch(authUser(user_id));
         }).catch((error)=> {
             console.log(error)
             alert('Could not sign in')
@@ -44,3 +46,4 @@ exports.authUser = (user_id) => {
 exports.unauthUser = {
     type: "UNAUTH_USER"
 }
+

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import {configureStore} from './app/store';
 import Main from './app/components/Main';
 
@@ -21,3 +22,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+

@@ -15,8 +15,8 @@ class Main extends Component {
   }
 
   render() {
-      renderMainView = () => {
-        if(this.props.user_id){
+
+    if(this.props.user_id){
             return(
               <Home/>
             )
@@ -27,14 +27,8 @@ class Main extends Component {
           );
         }
       }   
-    return (
-       <View style = {{flex: 1}}>
-       {renderMainView()}
-        <AlertContainer/>
-       </View> 
-    )
-  }
 }
+
 
 var mapStateToProps = (state) => {
     return{
