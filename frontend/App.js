@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import {configureStore} from './app/store';
-import Main from './app/components/Main';
+import Main from './app/components/screens/Main';
 
 export default class App extends React.Component {
   render() {

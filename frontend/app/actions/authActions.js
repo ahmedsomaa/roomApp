@@ -15,7 +15,6 @@ exports.loginUser = (email, password) => {
         }).catch((error)=> {
             console.log(error)
             alert('Could not sign in')
-            //dispatch(addAlert('Could not log in.'))
         })
     }
 }
@@ -24,8 +23,8 @@ exports.signupUser = (email, password) => {
     return function(dispatch){
         return axios.post(SIGNUP_URL, {email, password}).then((response) => {
             var {user_id, token} = response.data;
-            alert(token);
-            alert(authUser(user_id))
+            //alert(token);
+            //alert(authUser(user_id))
         }).catch((error)=> {
             console.log(error)
             alert('Could not sign up.')
@@ -43,7 +42,7 @@ exports.authUser = (user_id) => {
 }
 
 
-exports.unauthUser = {
+exports.unauthUser = () => {
     type: "UNAUTH_USER"
 }
 
